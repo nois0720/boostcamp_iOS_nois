@@ -18,7 +18,8 @@ class boostcamp_assn2_noisUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+        let app = XCUIApplication()
+        app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
@@ -29,8 +30,11 @@ class boostcamp_assn2_noisUITests: XCTestCase {
     }
     
     func testExample() {
+        let app = XCUIApplication()
+        app.buttons["Slide"].tap()
+        app.staticTexts["Get as close as you can to: "].tap()
+        
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-    
 }
