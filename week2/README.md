@@ -25,6 +25,6 @@
 
 #### QUIZ
 
-* [5인큐 - quiz](https://github.com/nois0720/boostcamp_iOS_nois/blob/master/week2/Source/5-inq-quiz.md)
 * [Mogay - quiz](https://github.com/nois0720/boostcamp_iOS_nois/blob/master/week2/Source/5-inq-quiz.md)
+* [5인큐 - quiz](https://github.com/nois0720/boostcamp_iOS_nois/blob/master/week2/Source/5-inq-quiz.md)
 * [다다 - quiz](https://github.com/spb829/BoostCamp_iOS/blob/master/week2/groupAssignment.md)
