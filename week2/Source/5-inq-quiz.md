@@ -6,4 +6,6 @@
 
 스토리보드에 기린과 농구공 이미지가 있다. 이 농구공을 panGesture를 이용해서 기린을 향해 끌어당긴 후에 충돌 여부를 계산해서 한번 충돌할 때마다 StackView에 담긴 다섯개의 FilledStar 이미지를 하나씩 EmptyStar 로 바꿔나간다.
 
+[필요한 파일](https://github.com/nois0720/boostcamp_iOS_nois/tree/master/week2/Source/gestureRecognizer.zip)
+
 [결과물](https://docs.google.com/presentation/d/138NNm-EBZuTfubXEayTRMZCYRJWuOW4jlsRClRb26iM/edit?usp=sharing)
