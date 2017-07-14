@@ -13,7 +13,7 @@
 * [쌍쌍바 - TTD on Xcode](https://github.com/smart23033/boostcamp_iOS_d/tree/master/Week2/EduContents)
 * [쌍쌍바 - Quiz](https://github.com/smart23033/boostcamp_iOS_d/tree/master/Week2/Quiz)
 * [쌍쌍바 퀴즈 예시](https://github.com/chojunyng/Built-in-Scientific-Calculator)
-* [쌍쌍바](https://github.com/nois0720/boostcamp_iOS_nois/blob/master/week2/    Source/ssb-log.md)
+* [쌍쌍바](https://github.com/nois0720/boostcamp_iOS_nois/blob/master/week2/Source/ssb-log.md)
 
 ### 타팀 활동 내역
 
@@ -23,7 +23,7 @@
 
 * [5인큐 - Gesture Reconizer](https://docs.google.com/presentation/d/138NNm-EBZuTfubXEayTRMZCYRJWuOW4jlsRClRb26iM/edit#slide=id.p)
 * [5인큐 - quiz](https://github.com/nois0720/boostcamp_iOS_nois/blob/master/week2/Source/5-inq-quiz.md)
-* [5인큐 - Tutoring log](https://github.com/nois0720/boostcamp_iOS_nois/blob/master/week2/Source/5-inq-log.md)
+* [5인큐 - Tutoring log](https://github.com/nois0720/boostcamp_iOS_nois/blob/master/week2/Source/5inq-log.md)
 
 #### 다다
 
