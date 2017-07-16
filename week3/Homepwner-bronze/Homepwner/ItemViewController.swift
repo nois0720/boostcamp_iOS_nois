@@ -21,6 +21,8 @@ class ItemViewController: UITableViewController {
         
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
+        
+        addFooter()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -28,16 +30,13 @@ class ItemViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        let expensives = itemStore.allItems.filter{ $0.valueInDollars >= 50 }
-        
-        print(expensives.count)
+        let expensiveCount = itemStore.allItems.filter{ $0.valueInDollars >= 50 }.count
         
         switch section {
         case 0:
-            return expensives.count
+            return expensiveCount
         case 1:
-            return itemStore.allItems.count - expensives.count
+            return itemStore.allItems.count - expensiveCount
         default:
             return 0
         }
@@ -45,8 +44,7 @@ class ItemViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
-        
-        let sortedItems = itemStore.allItems.sorted{$0.valueInDollars > $1.valueInDollars}
+        let sortedItems = itemStore.allItems.sorted{ $0.valueInDollars > $1.valueInDollars }
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         
         var row: Int
@@ -65,15 +63,25 @@ class ItemViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard section < itemStore.allItems.count else {
-            return nil
-        }
+    func addFooter() {
+        let footerFrame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40)
         
+        let footerView = UIView(frame: footerFrame)
+        footerView.backgroundColor = UIColor.orange
+        
+        let footerLabel = UILabel(frame: footerFrame)
+        footerLabel.text = "No More Items!"
+        footerLabel.textAlignment = .center
+        
+        footerView.addSubview(footerLabel)
+        tableView.tableFooterView = footerView
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionTitles[section]
     }
     
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return sectionTitles
-    }
+    //    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    //        return sectionTitles
+    //    }
 }
