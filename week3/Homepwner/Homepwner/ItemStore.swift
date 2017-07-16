@@ -20,10 +20,25 @@ class ItemStore {
         return newItem
     }
     
-    init() {
-        for _ in 0..<5 {
-            createItem()
+    func removeItem(_ item: Item) {
+        guard let index = allItems.index(of: item) else {
+            print("해당 아이템이 없습니다.")
+            return
         }
+        
+        allItems.remove(at: index)
+        print("아이템 삭제")
+    }
+    
+    func moveItemAtIndex(fromIndex: Int, toIndex: Int) {
+        guard fromIndex != toIndex else {
+            return
+        }
+        
+        let movedItem = allItems[fromIndex]
+        allItems.remove(at: fromIndex)
+        
+        allItems.insert(movedItem, at: toIndex)
     }
     
 }
