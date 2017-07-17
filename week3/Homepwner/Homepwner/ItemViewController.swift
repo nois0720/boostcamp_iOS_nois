@@ -9,7 +9,7 @@
 import UIKit
 
 class ItemViewController: UITableViewController {
-    
+  
     var itemStore: ItemStore!
     
     @IBAction func addNewItem(sender: AnyObject) {
@@ -32,7 +32,7 @@ class ItemViewController: UITableViewController {
             setEditing(true, animated: true)
         }
     }
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,7 +41,6 @@ class ItemViewController: UITableViewController {
         
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
-        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 65
         
