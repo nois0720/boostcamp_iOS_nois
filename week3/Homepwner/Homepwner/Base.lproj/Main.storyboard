@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,30 +18,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="DXh-6b-3AY">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puB-hg-vR0">
+                                    <rect key="frame" x="8" y="7" width="175.5" height="30"/>
+                                    <state key="normal" title="Edit"/>
+                                    <connections>
+                                        <action selector="toogleEditingModeWithSender:" destination="PaW-sO-upK" eventType="touchUpInside" id="5lo-xY-u77"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enW-SP-ocY">
+                                    <rect key="frame" x="191.5" y="7" width="175.5" height="30"/>
+                                    <state key="normal" title="Add"/>
+                                    <connections>
+                                        <action selector="addNewItemWithSender:" destination="PaW-sO-upK" eventType="touchUpInside" id="Wlb-LP-HM5"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="enW-SP-ocY" firstAttribute="width" secondItem="puB-hg-vR0" secondAttribute="width" id="BPO-bM-TDn"/>
+                                <constraint firstAttribute="trailing" secondItem="enW-SP-ocY" secondAttribute="trailing" constant="8" id="Eg3-pD-W4Q"/>
+                                <constraint firstItem="enW-SP-ocY" firstAttribute="centerY" secondItem="DXh-6b-3AY" secondAttribute="centerY" id="SYV-XB-WVj"/>
+                                <constraint firstItem="puB-hg-vR0" firstAttribute="centerY" secondItem="DXh-6b-3AY" secondAttribute="centerY" id="lSK-rQ-bO4"/>
+                                <constraint firstItem="enW-SP-ocY" firstAttribute="leading" secondItem="puB-hg-vR0" secondAttribute="trailing" constant="8" id="lf4-MU-VfL"/>
+                                <constraint firstItem="puB-hg-vR0" firstAttribute="leading" secondItem="DXh-6b-3AY" secondAttribute="leading" constant="8" id="xuO-1l-fxT"/>
+                            </constraints>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" textLabel="Usx-Xc-IeE" detailTextLabel="M3g-46-zLs" style="IBUITableViewCellStyleValue1" id="7hM-fa-e8P">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="7hM-fa-e8P" customClass="ItemCell" customModule="Homepwner" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7hM-fa-e8P" id="TNp-4X-FA4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Usx-Xc-IeE">
-                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eO-Ja-0u9">
+                                            <rect key="frame" x="8" y="8" width="45" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M3g-46-zLs">
-                                            <rect key="frame" x="301" y="12" width="59" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Serial Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaC-7J-Obr">
+                                            <rect key="frame" x="8" y="38" width="109" height="18"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7y8-Dv-HMG">
+                                            <rect key="frame" x="325" y="22" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="0eO-Ja-0u9" firstAttribute="leading" secondItem="TNp-4X-FA4" secondAttribute="leadingMargin" id="3MH-3B-JWk"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="7y8-Dv-HMG" secondAttribute="trailing" id="YMC-jq-j6f"/>
+                                        <constraint firstItem="7y8-Dv-HMG" firstAttribute="centerY" secondItem="TNp-4X-FA4" secondAttribute="centerY" id="Zpe-bc-aHx"/>
+                                        <constraint firstItem="gaC-7J-Obr" firstAttribute="top" secondItem="0eO-Ja-0u9" secondAttribute="bottom" constant="9" id="abd-MQ-bIC"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="gaC-7J-Obr" secondAttribute="bottom" constant="0.5" id="dqG-Dm-hfP"/>
+                                        <constraint firstItem="gaC-7J-Obr" firstAttribute="leading" secondItem="0eO-Ja-0u9" secondAttribute="leading" id="uLr-oA-jDO"/>
+                                        <constraint firstItem="0eO-Ja-0u9" firstAttribute="top" secondItem="TNp-4X-FA4" secondAttribute="topMargin" id="xAz-O8-7JD"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="0eO-Ja-0u9" id="NUA-gN-HC5"/>
+                                    <outlet property="serialNumberLabel" destination="gaC-7J-Obr" id="LwX-zA-BML"/>
+                                    <outlet property="valueLabel" destination="7y8-Dv-HMG" id="12q-uT-iyh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
