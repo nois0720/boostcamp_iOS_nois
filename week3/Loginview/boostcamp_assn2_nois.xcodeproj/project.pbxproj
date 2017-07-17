@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5C056E11F1CC60B0034B415 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C056E01F1CC60B0034B415 /* MyButton.swift */; };
 		E5DB71381F14A5A5006A70DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DB71371F14A5A5006A70DF /* AppDelegate.swift */; };
 		E5DB713A1F14A5A5006A70DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DB71391F14A5A5006A70DF /* ViewController.swift */; };
 		E5DB713D1F14A5A5006A70DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5DB713B1F14A5A5006A70DF /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E5C056E01F1CC60B0034B415 /* MyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		E5DB71341F14A5A5006A70DF /* boostcamp_assn2_nois.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = boostcamp_assn2_nois.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DB71371F14A5A5006A70DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5DB71391F14A5A5006A70DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				E5DB71391F14A5A5006A70DF /* ViewController.swift */,
 				E5DB71651F14A5E9006A70DF /* SignupViewController.swift */,
 				E5DB713B1F14A5A5006A70DF /* Main.storyboard */,
+				E5C056E01F1CC60B0034B415 /* MyButton.swift */,
 				E5DB713E1F14A5A5006A70DF /* Assets.xcassets */,
 				E5DB71401F14A5A5006A70DF /* LaunchScreen.storyboard */,
 				E5DB71431F14A5A5006A70DF /* Info.plist */,
@@ -268,6 +271,7 @@
 				E5DB71661F14A5E9006A70DF /* SignupViewController.swift in Sources */,
 				E5DB713A1F14A5A5006A70DF /* ViewController.swift in Sources */,
 				E5DB71381F14A5A5006A70DF /* AppDelegate.swift in Sources */,
+				E5C056E11F1CC60B0034B415 /* MyButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +522,7 @@
 				E5DB715E1F14A5A6006A70DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E5DB715F1F14A5A6006A70DF /* Build configuration list for PBXNativeTarget "boostcamp_assn2_noisTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +531,7 @@
 				E5DB71611F14A5A6006A70DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E5DB71621F14A5A6006A70DF /* Build configuration list for PBXNativeTarget "boostcamp_assn2_noisUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +540,7 @@
 				E5DB71641F14A5A6006A70DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
