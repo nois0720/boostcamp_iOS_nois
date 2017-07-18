@@ -58,7 +58,6 @@ class MyButton: UIView {
     }
     
     @IBOutlet var label: UILabel!
-    
     @IBInspectable var normalLabel: String?
     @IBInspectable var selectedLabel: String?
     @IBInspectable var normalHighlightedLabel: String?
@@ -89,13 +88,6 @@ class MyButton: UIView {
             return
         }
         
-        switch buttonState {
-        case .isNormal:
-            buttonState = .isSelected
-        case .isSelected:
-            buttonState = .isNormal
-        }
-        
         sendAction(for: [.touchUpInside])
     }
     
@@ -104,7 +96,6 @@ class MyButton: UIView {
         self.availableState = .enabled
         self.buttonState = .isNormal
         self.isHighlighted = false
-        
         super.init(frame: frame)
     }
     
@@ -112,7 +103,6 @@ class MyButton: UIView {
         self.availableState = .enabled
         self.buttonState = .isNormal
         self.isHighlighted = false
-        
         super.init(coder: aDecoder)
     }
     
@@ -142,5 +132,4 @@ class MyButton: UIView {
     func removeTarget(_ target: Any?, action: Selector?, for controlEvents: UIControlEvents) {
         eventList[controlEvents.rawValue] = nil
     }
-    
 }
