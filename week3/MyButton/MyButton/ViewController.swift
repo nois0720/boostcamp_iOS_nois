@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        myButton.addTarget(self, action: #selector(printTest), for: .touchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,4 +33,9 @@ class ViewController: UIViewController {
             sender.setTitle("Enable the button", for: .normal)
         }
     }
+  
+    func printTest() {
+        print("aaa")
+    }
+  
 }

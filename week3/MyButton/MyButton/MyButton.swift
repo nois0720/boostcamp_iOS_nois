@@ -9,6 +9,7 @@ import UIKit
 
 class MyButton: UIView {
     
+    //MARK: Enum
     enum AvailableState: Int {
         case enabled = 0
         case disabled
@@ -19,6 +20,7 @@ class MyButton: UIView {
         case isSelected
     }
     
+    //MARK: Variables
     var availableState: AvailableState {
         didSet {
             switch availableState {
@@ -34,9 +36,9 @@ class MyButton: UIView {
         didSet {
             switch buttonState {
             case .isNormal:
-                label?.text = "normal"
+                setTitle(normalLabel)
             case .isSelected:
-                label?.text = "selected"
+                setTitle(selectedLabel)
             }
         }
     }
@@ -44,25 +46,27 @@ class MyButton: UIView {
     var isHighlighted: Bool {
         didSet {
             if buttonState == .isNormal && isHighlighted {
-                label?.text = "highlighted1"
+                setTitle(normalHighlightedLabel)
             } else if buttonState == .isSelected && isHighlighted {
-                label?.text = "highlighted2"
+                setTitle(selectedHighlitedLabel)
+            } else if buttonState == .isNormal && !isHighlighted {
+                setTitle(normalLabel)
+            } else if buttonState == .isSelected && !isHighlighted {
+                setTitle(selectedLabel)
             }
         }
     }
     
     @IBOutlet var label: UILabel!
-    @IBOutlet var backgroundImg: UIImageView!
+    @IBInspectable var normalLabel: String?
+    @IBInspectable var selectedLabel: String?
+    @IBInspectable var normalHighlightedLabel: String?
+    @IBInspectable var selectedHighlitedLabel: String?
     
+    var eventList: [UIControlEvents.RawValue : (Selector, Any)] = [ : ]
+    
+    //MARK: Touch events
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard availableState == .enabled else {
-            return
-        }
-        
-        print("touch start!")
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard availableState == .enabled else {
             return
         }
@@ -77,14 +81,14 @@ class MyButton: UIView {
         
         isHighlighted = false
         
-        switch buttonState {
-        case .isNormal:
-            buttonState = .isSelected
-        case .isSelected:
-            buttonState = .isNormal
+        let touch = touches.first!
+        let touchLocation = touch.location(in: self)
+        
+        guard self.bounds.contains(touchLocation) else {
+            return
         }
         
-        print("touch end!")
+        sendAction(for: [.touchUpInside])
     }
     
     //MARK: Initialization
@@ -102,4 +106,30 @@ class MyButton: UIView {
         super.init(coder: aDecoder)
     }
     
+    func setTitle(_ title: String?) {
+        label?.text = title ?? ""
+    }
+    
+    func sendAction(for controlEvents: UIControlEvents) {
+        guard let tuple = eventList[controlEvents.rawValue] else {
+            return
+        }
+        
+        let selector = tuple.0
+        if let target = tuple.1 as? NSObjectProtocol {
+            target.perform(selector)
+        }
+    }
+    
+    func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControlEvents) {
+        guard let t = target as Any? else {
+            return
+        }
+        
+        eventList[controlEvents.rawValue] = (action, t)
+    }
+    
+    func removeTarget(_ target: Any?, action: Selector?, for controlEvents: UIControlEvents) {
+        eventList[controlEvents.rawValue] = nil
+    }
 }
