@@ -64,7 +64,7 @@ class MyButton: UIView {
     @IBInspectable var normalHighlightedLabel: String?
     @IBInspectable var selectedHighlitedLabel: String?
     
-    var eventList: [UIControlEvents.RawValue : (Selector, Any)] = [ : ]
+    var eventDictionary: [UIControlEvents.RawValue : [(Selector, Any)]] = [ : ]
     
     //MARK: Touch events
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -96,7 +96,11 @@ class MyButton: UIView {
             buttonState = .isNormal
         }
         
+        print("end touch 1 \(UIControlEvents.touchUpInside.rawValue)")
+        print("end touch 2 \(UIControlEvents.touchDragInside.rawValue)")
+        
         sendAction(for: [.touchUpInside])
+        sendAction(for: [.touchUpInside, .touchDragInside])
     }
     
     //MARK: Initialization
@@ -105,7 +109,10 @@ class MyButton: UIView {
         self.buttonState = .isNormal
         self.isHighlighted = false
         
+        
         super.init(frame: frame)
+        
+        setTitle(normalLabel)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -118,29 +125,44 @@ class MyButton: UIView {
     
     func setTitle(_ title: String?) {
         label?.text = title ?? ""
+        label?.textAlignment = .center
     }
     
     func sendAction(for controlEvents: UIControlEvents) {
-        guard let tuple = eventList[controlEvents.rawValue] else {
+        //controlEvents.
+        
+        print("send action \(controlEvents.rawValue)")
+        //controlEvents.
+        
+        guard let events = eventDictionary[controlEvents.rawValue] else {
             return
         }
         
-        let selector = tuple.0
-        if let target = tuple.1 as? NSObjectProtocol {
-            target.perform(selector)
+        for event in events {
+            let selector = event.0
+
+            if let target = event.1 as? NSObjectProtocol {
+                target.perform(selector)
+            }
         }
     }
     
     func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControlEvents) {
+        print("add target. \(controlEvents)")
+        
         guard let t = target as Any? else {
             return
         }
         
-        eventList[controlEvents.rawValue] = (action, t)
+        if eventDictionary[controlEvents.rawValue] == nil {
+            eventDictionary[controlEvents.rawValue] = []
+        }
+        
+        eventDictionary[controlEvents.rawValue]!.append((action,t))
     }
     
     func removeTarget(_ target: Any?, action: Selector?, for controlEvents: UIControlEvents) {
-        eventList[controlEvents.rawValue] = nil
+        //eventDictionary[controlEvents.rawValue]?.remove(at: <#T##Int#>) = nil
     }
     
 }

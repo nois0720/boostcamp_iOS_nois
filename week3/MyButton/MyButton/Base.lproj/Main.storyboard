@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,27 +23,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGp-uS-CVS">
-                                <rect key="frame" x="126" y="175" width="122" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Enable the button"/>
-                                <connections>
-                                    <action selector="activateMyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="20Y-id-0Nc"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ll-ri-9sL" customClass="MyButton" customModule="MyButton" customModuleProvider="target">
-                                <rect key="frame" x="67" y="40" width="240" height="127"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ll-ri-9sL" customClass="MyButton" customModule="MyButton" customModuleProvider="target">
+                                <rect key="frame" x="94" y="30" width="187.5" height="118.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Button Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mr8-dC-49g">
-                                        <rect key="frame" x="72" y="53" width="97" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Button Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mr8-dC-49g">
+                                        <rect key="frame" x="44.5" y="49.5" width="97" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="mr8-dC-49g" firstAttribute="centerY" secondItem="2Ll-ri-9sL" secondAttribute="centerY" id="THg-zV-7HQ"/>
+                                    <constraint firstItem="mr8-dC-49g" firstAttribute="centerX" secondItem="2Ll-ri-9sL" secondAttribute="centerX" id="Ty5-c9-STt"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="normalLabel" value="normal"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="selectedLabel" value="selected"/>
@@ -52,8 +48,38 @@
                                     <outlet property="label" destination="mr8-dC-49g" id="sYc-an-2o3"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGp-uS-CVS">
+                                <rect key="frame" x="126" y="178.5" width="122" height="30"/>
+                                <state key="normal" title="Enable the button"/>
+                                <connections>
+                                    <action selector="activateMyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="20Y-id-0Nc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LGp-uS-CVS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-0.5" id="67i-8B-BiL"/>
+                            <constraint firstItem="2Ll-ri-9sL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="centerXWithinMargins" multiplier="1.5" id="LAU-4B-gJS">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="2Ll-ri-9sL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="centerXWithinMargins" multiplier="0.5" id="VfV-as-UgH">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="2Ll-ri-9sL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="W2y-Wl-AZA">
+                                <variation key="heightClass=compact" constant="10"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                            </constraint>
+                            <constraint firstItem="LGp-uS-CVS" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="0.5" id="ZFH-uq-6VI">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="-140"/>
+                            </constraint>
+                            <constraint firstItem="LGp-uS-CVS" firstAttribute="top" secondItem="2Ll-ri-9sL" secondAttribute="centerY" multiplier="2" constant="26" id="rdH-6a-G5k">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="myButton" destination="2Ll-ri-9sL" id="3i0-oN-7lv"/>
