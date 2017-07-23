@@ -22,29 +22,20 @@ class ItemViewController: UITableViewController {
         let indexPath = NSIndexPath(row: index, section: 0)
         tableView.insertRows(at: [indexPath as IndexPath], with: .automatic)
     }
-    
-    @IBAction func toogleEditingMode(sender: AnyObject) {
-        if isEditing {
-            sender.setTitle("Edit", for: .normal)
-            setEditing(false, animated: true)
-        } else {
-            sender.setTitle("Done", for: .normal)
-            setEditing(true, animated: true)
-        }
-    }
   
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
-        
-        tableView.contentInset = insets
-        tableView.scrollIndicatorInsets = insets
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 65
         
         addFooter()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        tableView.reloadData()
     }
     
     func addFooter() {
@@ -112,5 +103,25 @@ class ItemViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "Remove"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "ShowItem" else {
+            return
+        }
+        
+        guard let row = tableView.indexPathForSelectedRow?.row else {
+            return
+        }
+        
+        let item = itemStore.allItems[row]
+        let detailViewController = segue.destination as! DetailViewController
+        detailViewController.item = item
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
     }
 }
