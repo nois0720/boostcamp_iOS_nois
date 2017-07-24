@@ -1,10 +1,4 @@
-//
-//  MyButton.swift
-//  MyButton
-//
-//  Created by Yoo Seok Kim on 2017. 7. 17..
-//  Copyright © 2017년 Nois. All rights reserved.
-//
+
 import UIKit
 
 class MyButton: UIView {
@@ -113,18 +107,24 @@ class MyButton: UIView {
     //MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setLabel()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         setLabel()
     }
     
     func setTitle(_ title: String?) {
-        label?.text = title ?? ""
+        guard title != "" else {
+            return
+        }
+        
+        guard title != nil else {
+            return
+        }
+        
+        label.text = title
     }
     
     func setBgColor(_ color: UIColor?) {
