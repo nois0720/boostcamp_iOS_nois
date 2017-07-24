@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="G5n-2K-YhF">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="OneToTwentyfive" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="최고기록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffN-CJ-AS1">
+                                <rect key="frame" x="16" y="30" width="343" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.1174316406" green="0.60158962670000005" blue="0.40437825519999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="76k-Ct-B1a">
+                                <rect key="frame" x="16" y="61.5" width="343" height="52.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="- --:--:--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYq-TK-g46">
+                                        <rect key="frame" x="0.0" y="0.0" width="71" height="52.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" red="0.1174316406" green="0.60158962670000005" blue="0.40437825519999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c00-7E-WEQ">
+                                        <rect key="frame" x="267.5" y="0.0" width="75.5" height="52.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" red="0.1174316406" green="0.60158962670000005" blue="0.40437825519999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IXB-83-60O">
+                                <rect key="frame" x="16" y="162" width="343" height="343"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M5f-V1-gh3">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="62"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqF-r5-Oix" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980392155" green="0.51764705882352935" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697048611111" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0r-lZ-1X3" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="70" y="0.0" width="62.5" height="62"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980392155" green="0.51764705882352935" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697048611111" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJU-nU-dM5" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="140.5" y="0.0" width="62" height="62"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980392155" green="0.51764705882352935" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697048611111" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWg-4k-Fjk" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="210.5" y="0.0" width="62.5" height="62"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980392155" green="0.51764705882352935" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697048611111" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G5T-Of-obt" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="281" y="0.0" width="62" height="62"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980392155" green="0.51764705882352935" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697048611111" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CT3-BN-fQK">
+                                        <rect key="frame" x="0.0" y="70" width="343" height="62.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ip-7C-EpH" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="62" height="62.5"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAJ-Cc-YUM" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="70" y="0.0" width="62.5" height="62.5"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yFy-nN-IVT" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="140.5" y="0.0" width="62" height="62.5"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ykV-M1-l4t" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="210.5" y="0.0" width="62.5" height="62.5"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JYy-rO-stj" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="281" y="0.0" width="62" height="62.5"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sNJ-f7-vfB">
+                                        <rect key="frame" x="0.0" y="140.5" width="343" height="62"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4pQ-ZD-GdM" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8j5-4z-Se2" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="70" y="0.0" width="62.5" height="62"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EU3-K8-oP1" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="140.5" y="0.0" width="62" height="62"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QrM-h0-3dP" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="210.5" y="0.0" width="62.5" height="62"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Jd-lO-hl3" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="281" y="0.0" width="62" height="62"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UHB-Os-x2S">
+                                        <rect key="frame" x="0.0" y="210.5" width="343" height="62.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UlZ-CB-fFU" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="62" height="62.5"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcY-go-Tid" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="70" y="0.0" width="62.5" height="62.5"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="byZ-nu-LUL" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="140.5" y="0.0" width="62" height="62.5"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="prk-gk-12p" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="210.5" y="0.0" width="62.5" height="62.5"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTl-9F-JNr" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="281" y="0.0" width="62" height="62.5"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jv9-QP-5OH">
+                                        <rect key="frame" x="0.0" y="281" width="343" height="62"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHh-1D-5nR" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOa-00-jmO" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="70" y="0.0" width="62.5" height="62"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agT-hV-unR" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="140.5" y="0.0" width="62" height="62"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUZ-NG-kLC" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="210.5" y="0.0" width="62.5" height="62"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zw0-er-Wik" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                                <rect key="frame" x="281" y="0.0" width="62" height="62"/>
+                                                <color key="backgroundColor" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                        <color key="value" red="0.28627450980000002" green="0.4211697049" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="IXB-83-60O" secondAttribute="height" multiplier="1:1" id="Tyx-nR-c4u"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htL-SS-Tx2" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                <rect key="frame" x="16" y="162" width="343" height="343"/>
+                                <color key="backgroundColor" red="0.88091362849999999" green="0.4226074219" blue="0.048963758679999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                        <color key="value" red="0.88091362849999999" green="0.4226074219" blue="0.048963758679999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                        <color key="value" red="0.86602105029999998" green="0.29796006940000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="normalLabel" value="Press to start!"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ADe-eq-Niy">
+                                <rect key="frame" x="0.0" y="631.5" width="375" height="35.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wt6-Lr-Xnm" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="35.5"/>
+                                        <color key="backgroundColor" red="0.88091362849999999" green="0.4226074219" blue="0.048963758679999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                <color key="value" red="0.88091362849999999" green="0.4226074219" blue="0.048963758679999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                <color key="value" red="0.86602105029999998" green="0.29796006940000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="normalLabel" value="Home"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tHE-pK-A7q" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="35.5"/>
+                                        <color key="backgroundColor" red="0.88091362849999999" green="0.4226074219" blue="0.048963758679999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                <color key="value" red="0.88091362849999999" green="0.4226074219" blue="0.048963758679999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                <color key="value" red="0.86602105029999998" green="0.29796006940000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="normalLabel" value="History"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="76k-Ct-B1a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="243-UC-gyy"/>
+                            <constraint firstItem="ffN-CJ-AS1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" multiplier="1.5" id="486-Qs-G7o"/>
+                            <constraint firstItem="IXB-83-60O" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="55t-5B-Z9M"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IXB-83-60O" secondAttribute="trailing" id="67X-sZ-xBS"/>
+                            <constraint firstAttribute="right" secondItem="ADe-eq-Niy" secondAttribute="rightMargin" id="8XW-Tk-JSu"/>
+                            <constraint firstItem="ADe-eq-Niy" firstAttribute="leadingMargin" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="G7b-2D-424"/>
+                            <constraint firstItem="htL-SS-Tx2" firstAttribute="centerX" secondItem="IXB-83-60O" secondAttribute="centerX" id="H8x-hz-uSy"/>
+                            <constraint firstItem="IXB-83-60O" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JpI-g4-ObA"/>
+                            <constraint firstItem="htL-SS-Tx2" firstAttribute="centerY" secondItem="IXB-83-60O" secondAttribute="centerY" id="KXy-db-tAI"/>
+                            <constraint firstItem="ADe-eq-Niy" firstAttribute="top" secondItem="IXB-83-60O" secondAttribute="bottom" multiplier="1.25" id="LCf-TP-2xD"/>
+                            <constraint firstItem="76k-Ct-B1a" firstAttribute="bottom" secondItem="IXB-83-60O" secondAttribute="top" multiplier="0.7" id="Lkx-Pt-s3q"/>
+                            <constraint firstItem="ffN-CJ-AS1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Od2-pn-SeK"/>
+                            <constraint firstItem="76k-Ct-B1a" firstAttribute="top" secondItem="ffN-CJ-AS1" secondAttribute="bottom" multiplier="1.2" id="YgV-AM-h38"/>
+                            <constraint firstAttribute="bottom" secondItem="ADe-eq-Niy" secondAttribute="bottom" id="ZMS-wn-Tcs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="76k-Ct-B1a" secondAttribute="trailing" id="a2E-Iw-DP2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ADe-eq-Niy" secondAttribute="bottom" id="j0X-b2-98E"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IXB-83-60O" secondAttribute="centerY" multiplier="2" id="oVo-XR-tgQ"/>
+                            <constraint firstItem="htL-SS-Tx2" firstAttribute="width" secondItem="IXB-83-60O" secondAttribute="width" id="qTq-Xk-h5a"/>
+                            <constraint firstItem="ffN-CJ-AS1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tP9-5x-Hsw"/>
+                            <constraint firstItem="htL-SS-Tx2" firstAttribute="height" secondItem="IXB-83-60O" secondAttribute="height" id="zWP-mZ-K3G"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="5e8-Xq-fVI"/>
+                    <connections>
+                        <outlet property="gameStartButton" destination="htL-SS-Tx2" id="9s8-cR-8aI"/>
+                        <outlet property="historyButton" destination="tHE-pK-A7q" id="L7V-Qf-yBL"/>
+                        <outlet property="homeButton" destination="Wt6-Lr-Xnm" id="zLV-XF-Sfj"/>
+                        <outlet property="numberStackView" destination="IXB-83-60O" id="spV-Qu-i3B"/>
+                        <segue destination="kU6-UR-JsD" kind="show" identifier="history" id="rug-ou-P8u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="796" y="-1046.6266866566718"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ypW-lW-808">
+            <objects>
+                <navigationController id="G5n-2K-YhF" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AhL-PP-9Eu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="75l-IL-OiD" kind="relationship" relationship="rootViewController" id="rOv-ml-ht1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d3Z-ia-5r7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-857" y="-681"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="5Jx-tM-aQZ">
+            <objects>
+                <viewController id="75l-IL-OiD" customClass="MainViewController" customModule="OneToTwentyfive" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UOE-nB-1BP"/>
+                        <viewControllerLayoutGuide type="bottom" id="1vm-MO-qbC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M8n-PX-4W8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="1 to 25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCg-CQ-AWm">
+                                <rect key="frame" x="117" y="128" width="141" height="54"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <color key="textColor" red="0.1174316406" green="0.60158962670000005" blue="0.40437825519999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Bt3-BE-dnX">
+                                <rect key="frame" x="16" y="259.5" width="343" height="74"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXq-Di-o6N" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="164.5" height="74"/>
+                                        <color key="backgroundColor" red="0.88091362849999999" green="0.4226074219" blue="0.048963758679999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="normalLabel" value="Play"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedLabel" value="Play"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="normalHighlightedLabel" value="Play"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedHighlitedLabel" value="Play"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                <color key="value" red="0.88091362847222221" green="0.422607421875" blue="0.048963758680555552" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                <color key="value" red="0.86602105034722221" green="0.29796006944444442" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0S-k9-Ass" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                        <rect key="frame" x="178.5" y="0.0" width="164.5" height="74"/>
+                                        <color key="backgroundColor" red="0.88091362849999999" green="0.4226074219" blue="0.048963758679999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="normalLabel" value="History"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedLabel" value="History"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="normalHighlightedLabel" value="History"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedHighlitedLabel" value="History"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                <color key="value" red="0.88091362847222221" green="0.422607421875" blue="0.048963758680555552" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="normalHighlightedColor">
+                                                <color key="value" red="0.86602105029999998" green="0.29796006940000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MCg-CQ-AWm" firstAttribute="top" secondItem="UOE-nB-1BP" secondAttribute="bottom" multiplier="2" id="0Yh-a2-RuN"/>
+                            <constraint firstItem="MCg-CQ-AWm" firstAttribute="centerX" secondItem="M8n-PX-4W8" secondAttribute="centerX" id="36I-ZA-zes"/>
+                            <constraint firstItem="MCg-CQ-AWm" firstAttribute="bottom" secondItem="Bt3-BE-dnX" secondAttribute="top" multiplier="0.7" id="9VE-Mp-Mze"/>
+                            <constraint firstItem="Bt3-BE-dnX" firstAttribute="leading" secondItem="M8n-PX-4W8" secondAttribute="leadingMargin" id="ZdM-ZJ-VDT"/>
+                            <constraint firstItem="Bt3-BE-dnX" firstAttribute="trailing" secondItem="M8n-PX-4W8" secondAttribute="trailingMargin" id="dhd-mq-hqc"/>
+                            <constraint firstItem="Bt3-BE-dnX" firstAttribute="centerX" secondItem="M8n-PX-4W8" secondAttribute="centerX" id="p2X-2f-wap"/>
+                            <constraint firstItem="Bt3-BE-dnX" firstAttribute="bottom" secondItem="1vm-MO-qbC" secondAttribute="top" multiplier="0.5" id="qdM-71-ySu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="alB-TJ-7wo"/>
+                    <connections>
+                        <outlet property="historyButton" destination="m0S-k9-Ass" id="3wp-kh-erD"/>
+                        <outlet property="playButton" destination="kXq-Di-o6N" id="W4J-7E-W2L"/>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="game" action="showViewController:sender:" id="tRt-QL-hwD"/>
+                        <segue destination="kU6-UR-JsD" kind="show" identifier="history" action="showDetailViewController:sender:" id="SEr-Lq-8ty"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZAH-qO-H8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10.4" y="-681.40929535232385"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="dEf-P2-ZgM">
+            <objects>
+                <tableViewController id="kU6-UR-JsD" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nfy-wE-m1U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="5bk-DC-Nwe">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5bk-DC-Nwe" id="gRc-hu-qX0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kU6-UR-JsD" id="Ush-zG-n8p"/>
+                            <outlet property="delegate" destination="kU6-UR-JsD" id="zqb-kU-Htk"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bRj-Y2-8fP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="796" y="-338"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rug-ou-P8u"/>
+    </inferredMetricsTieBreakers>
+</document>
