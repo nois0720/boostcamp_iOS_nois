@@ -551,24 +551,54 @@
                     <connections>
                         <outlet property="historyButton" destination="m0S-k9-Ass" id="3wp-kh-erD"/>
                         <outlet property="playButton" destination="kXq-Di-o6N" id="W4J-7E-W2L"/>
-                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="game" action="showViewController:sender:" id="tRt-QL-hwD"/>
-                        <segue destination="kU6-UR-JsD" kind="show" identifier="history" action="showDetailViewController:sender:" id="SEr-Lq-8ty"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="game" id="tRt-QL-hwD"/>
+                        <segue destination="kU6-UR-JsD" kind="show" identifier="history" id="VxN-jR-TIn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZAH-qO-H8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-10.4" y="-681.40929535232385"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Record Table View Controller-->
         <scene sceneID="dEf-P2-ZgM">
             <objects>
-                <tableViewController id="kU6-UR-JsD" sceneMemberID="viewController">
+                <tableViewController id="kU6-UR-JsD" customClass="RecordTableViewController" customModule="OneToTwentyfive" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" id="nfy-wE-m1U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <stackView key="tableFooterView" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" id="Iep-aF-LDU">
+                            <rect key="frame" x="0.0" y="93" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCB-KU-rjt" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="44"/>
+                                    <color key="backgroundColor" red="0.88091362849999999" green="0.4226074219" blue="0.048963758679999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedColor">
+                                            <color key="value" red="0.88091362849999999" green="0.4226074219" blue="0.048963758679999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedHighlitedColor">
+                                            <color key="value" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6Y-bn-zq9" customClass="MyButton" customModule="OneToTwentyfive" customModuleProvider="target">
+                                    <rect key="frame" x="187.5" y="0.0" width="187.5" height="44"/>
+                                    <color key="backgroundColor" red="0.88091362849999999" green="0.4226074219" blue="0.048963758679999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedColor">
+                                            <color key="value" red="0.88091362849999999" green="0.4226074219" blue="0.048963758679999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedHighlitedColor">
+                                            <color key="value" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                        </stackView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="aUS-dJ-di3" detailTextLabel="jV8-AO-35h" rowHeight="65" style="IBUITableViewCellStyleSubtitle" id="5bk-DC-Nwe">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" textLabel="aUS-dJ-di3" detailTextLabel="jV8-AO-35h" rowHeight="65" style="IBUITableViewCellStyleSubtitle" id="5bk-DC-Nwe">
                                 <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5bk-DC-Nwe" id="gRc-hu-qX0">
@@ -598,6 +628,10 @@
                             <outlet property="delegate" destination="kU6-UR-JsD" id="zqb-kU-Htk"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="backButton" destination="dCB-KU-rjt" id="wW7-ls-Txw"/>
+                        <outlet property="resetButton" destination="h6Y-bn-zq9" id="HH7-Eb-eLO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRj-Y2-8fP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -605,6 +639,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rug-ou-P8u"/>
+        <segue reference="VxN-jR-TIn"/>
     </inferredMetricsTieBreakers>
 </document>

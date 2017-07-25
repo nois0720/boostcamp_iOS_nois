@@ -31,8 +31,24 @@ class MainViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "history" else {
+            return
+        }
+        
+        let recordTableViewController = segue.destination as! RecordTableViewController
+        
+        guard recordTableViewController.recordStore == nil else {
+            return
+        }
+        
+        let recordStore = RecordStore()
+        recordTableViewController.recordStore = recordStore
+    }
+    
     func gotoGameView() {
         performSegue(withIdentifier: "game", sender: nil)
+        FileUtils.write(fileName: "test")
     }
     
     func gotoHistoryView() {
