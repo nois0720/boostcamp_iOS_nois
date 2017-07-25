@@ -10,7 +10,6 @@
 		E5BDA27B1F25B42D00F9ED52 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BDA27A1F25B42D00F9ED52 /* GameViewController.swift */; };
 		E5BDA29B1F26356D00F9ED52 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BDA29A1F26356D00F9ED52 /* Extension.swift */; };
 		E5C76B2B1F25A36C0028F99C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C76B2A1F25A36C0028F99C /* AppDelegate.swift */; };
-		E5C76B2D1F25A36C0028F99C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C76B2C1F25A36C0028F99C /* ViewController.swift */; };
 		E5C76B301F25A36C0028F99C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5C76B2E1F25A36C0028F99C /* Main.storyboard */; };
 		E5C76B321F25A36C0028F99C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5C76B311F25A36C0028F99C /* Assets.xcassets */; };
 		E5C76B351F25A36C0028F99C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5C76B331F25A36C0028F99C /* LaunchScreen.storyboard */; };
@@ -23,7 +22,6 @@
 		E5BDA29A1F26356D00F9ED52 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		E5C76B271F25A36C0028F99C /* OneToTwentyfive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneToTwentyfive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5C76B2A1F25A36C0028F99C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E5C76B2C1F25A36C0028F99C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E5C76B2F1F25A36C0028F99C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5C76B311F25A36C0028F99C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5C76B341F25A36C0028F99C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,6 +41,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E525049C1F270BB100354054 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E5BDA27A1F25B42D00F9ED52 /* GameViewController.swift */,
+				E5C76B3C1F25A6C20028F99C /* MainViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		E525049D1F270BC100354054 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				E5C76B3E1F25A7340028F99C /* Mybutton.swift */,
+			);
+			name = CustomView;
+			sourceTree = "<group>";
+		};
 		E5C76B1E1F25A36C0028F99C = {
 			isa = PBXGroup;
 			children = (
@@ -62,13 +77,11 @@
 		E5C76B291F25A36C0028F99C /* OneToTwentyfive */ = {
 			isa = PBXGroup;
 			children = (
+				E525049D1F270BC100354054 /* CustomView */,
+				E525049C1F270BB100354054 /* ViewController */,
 				E5C76B2A1F25A36C0028F99C /* AppDelegate.swift */,
-				E5C76B2C1F25A36C0028F99C /* ViewController.swift */,
 				E5C76B2E1F25A36C0028F99C /* Main.storyboard */,
-				E5C76B3E1F25A7340028F99C /* Mybutton.swift */,
-				E5BDA27A1F25B42D00F9ED52 /* GameViewController.swift */,
 				E5BDA29A1F26356D00F9ED52 /* Extension.swift */,
-				E5C76B3C1F25A6C20028F99C /* MainViewController.swift */,
 				E5C76B311F25A36C0028F99C /* Assets.xcassets */,
 				E5C76B331F25A36C0028F99C /* LaunchScreen.storyboard */,
 				E5C76B361F25A36C0028F99C /* Info.plist */,
@@ -151,7 +164,6 @@
 			files = (
 				E5BDA27B1F25B42D00F9ED52 /* GameViewController.swift in Sources */,
 				E5C76B3D1F25A6C20028F99C /* MainViewController.swift in Sources */,
-				E5C76B2D1F25A36C0028F99C /* ViewController.swift in Sources */,
 				E5BDA29B1F26356D00F9ED52 /* Extension.swift in Sources */,
 				E5C76B2B1F25A36C0028F99C /* AppDelegate.swift in Sources */,
 				E5C76B3F1F25A7340028F99C /* Mybutton.swift in Sources */,
