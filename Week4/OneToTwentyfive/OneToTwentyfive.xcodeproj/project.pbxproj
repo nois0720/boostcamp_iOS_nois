@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E525049F1F270E6700354054 /* RecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525049E1F270E6700354054 /* RecordTableViewController.swift */; };
+		E52504A11F27136900354054 /* RecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52504A01F27136900354054 /* RecordItem.swift */; };
+		E52504A41F27145D00354054 /* RecordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52504A31F27145D00354054 /* RecordStore.swift */; };
+		E52504A91F272A5700354054 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52504A81F272A5700354054 /* FileUtils.swift */; };
 		E5BDA27B1F25B42D00F9ED52 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BDA27A1F25B42D00F9ED52 /* GameViewController.swift */; };
 		E5BDA29B1F26356D00F9ED52 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BDA29A1F26356D00F9ED52 /* Extension.swift */; };
 		E5C76B2B1F25A36C0028F99C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C76B2A1F25A36C0028F99C /* AppDelegate.swift */; };
@@ -18,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E525049E1F270E6700354054 /* RecordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTableViewController.swift; sourceTree = "<group>"; };
+		E52504A01F27136900354054 /* RecordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordItem.swift; path = OneToTwentyfive/RecordItem.swift; sourceTree = "<group>"; };
+		E52504A31F27145D00354054 /* RecordStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordStore.swift; sourceTree = "<group>"; };
+		E52504A81F272A5700354054 /* FileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
 		E5BDA27A1F25B42D00F9ED52 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		E5BDA29A1F26356D00F9ED52 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		E5C76B271F25A36C0028F99C /* OneToTwentyfive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneToTwentyfive.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +54,7 @@
 			children = (
 				E5BDA27A1F25B42D00F9ED52 /* GameViewController.swift */,
 				E5C76B3C1F25A6C20028F99C /* MainViewController.swift */,
+				E525049E1F270E6700354054 /* RecordTableViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -56,6 +65,24 @@
 				E5C76B3E1F25A7340028F99C /* Mybutton.swift */,
 			);
 			name = CustomView;
+			sourceTree = "<group>";
+		};
+		E52504A21F27144200354054 /* RecordItem */ = {
+			isa = PBXGroup;
+			children = (
+				E52504A01F27136900354054 /* RecordItem.swift */,
+				E52504A31F27145D00354054 /* RecordStore.swift */,
+			);
+			name = RecordItem;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		E52504A71F272A2400354054 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E52504A81F272A5700354054 /* FileUtils.swift */,
+			);
+			name = Manager;
 			sourceTree = "<group>";
 		};
 		E5C76B1E1F25A36C0028F99C = {
@@ -77,8 +104,10 @@
 		E5C76B291F25A36C0028F99C /* OneToTwentyfive */ = {
 			isa = PBXGroup;
 			children = (
+				E52504A71F272A2400354054 /* Manager */,
 				E525049D1F270BC100354054 /* CustomView */,
 				E525049C1F270BB100354054 /* ViewController */,
+				E52504A21F27144200354054 /* RecordItem */,
 				E5C76B2A1F25A36C0028F99C /* AppDelegate.swift */,
 				E5C76B2E1F25A36C0028F99C /* Main.storyboard */,
 				E5BDA29A1F26356D00F9ED52 /* Extension.swift */,
@@ -162,10 +191,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E52504A41F27145D00354054 /* RecordStore.swift in Sources */,
 				E5BDA27B1F25B42D00F9ED52 /* GameViewController.swift in Sources */,
 				E5C76B3D1F25A6C20028F99C /* MainViewController.swift in Sources */,
 				E5BDA29B1F26356D00F9ED52 /* Extension.swift in Sources */,
 				E5C76B2B1F25A36C0028F99C /* AppDelegate.swift in Sources */,
+				E525049F1F270E6700354054 /* RecordTableViewController.swift in Sources */,
+				E52504A91F272A5700354054 /* FileUtils.swift in Sources */,
+				E52504A11F27136900354054 /* RecordItem.swift in Sources */,
 				E5C76B3F1F25A7340028F99C /* Mybutton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

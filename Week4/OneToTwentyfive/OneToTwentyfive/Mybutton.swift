@@ -140,6 +140,10 @@ class MyButton: UIView {
             return
         }
         
+        if(controlEvents.contains(.touchDown)) {
+            self.buttonState = .isNormal
+        }
+        
         let selector = tuple.0
         if let target = tuple.1 as? NSObjectProtocol {
             target.perform(selector)

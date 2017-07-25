@@ -100,6 +100,7 @@ class GameViewController: UIViewController {
                 
                 let buttonFunction = buttonFunctionMaker(index: shuffeldArray[count], button: myButton)
                 let buttonAction = Action(action: buttonFunction)
+                
                 myButton.addTarget(buttonAction, action: #selector(buttonAction.action), for: .touchDown)
                 
                 myButton.setTitle(String(shuffeldArray[count]))
@@ -112,11 +113,27 @@ class GameViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "history" else {
+            return
+        }
+        
+        let recordTableViewController = segue.destination as! RecordTableViewController
+        
+        guard recordTableViewController.recordStore == nil else {
+            return
+        }
+        
+        let recordStore = RecordStore()
+        recordTableViewController.recordStore = recordStore
+    }
+    
     func gotoHome() {
         navigationController?.popViewController(animated: true)
     }
     
     func gotoHistory() {
+        FileUtils.read(fileName: "test")
         performSegue(withIdentifier: "history", sender: nil)
     }
     
