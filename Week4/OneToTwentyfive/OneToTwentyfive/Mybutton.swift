@@ -172,22 +172,22 @@ class MyButton: UIView {
         
         let widthConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 300)
         let heightConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 200)
-        var constraints = NSLayoutConstraint.constraints(
+        let alignCenterXConstraints = NSLayoutConstraint.constraints(
             withVisualFormat: "V:[superview]-(<=1)-[label]",
             options: NSLayoutFormatOptions.alignAllCenterX,
             metrics: nil,
             views: ["superview":self, "label":label])
         
-        self.addConstraints(constraints)
+        self.addConstraints(alignCenterXConstraints)
         
         // Center vertically
-        constraints = NSLayoutConstraint.constraints(
+        let alignCenterYConstraints = NSLayoutConstraint.constraints(
             withVisualFormat: "H:[superview]-(<=1)-[label]",
             options: NSLayoutFormatOptions.alignAllCenterY,
             metrics: nil,
             views: ["superview":self, "label":label])
         
-        self.addConstraints(constraints)
+        self.addConstraints(alignCenterYConstraints)
         
         self.addConstraints([ widthConstraint, heightConstraint])
     }
