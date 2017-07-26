@@ -77,12 +77,12 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		E52504A71F272A2400354054 /* Manager */ = {
+		E52504A71F272A2400354054 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				E52504A81F272A5700354054 /* FileUtils.swift */,
 			);
-			name = Manager;
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		E5C76B1E1F25A36C0028F99C = {
@@ -104,7 +104,7 @@
 		E5C76B291F25A36C0028F99C /* OneToTwentyfive */ = {
 			isa = PBXGroup;
 			children = (
-				E52504A71F272A2400354054 /* Manager */,
+				E52504A71F272A2400354054 /* Utils */,
 				E525049D1F270BC100354054 /* CustomView */,
 				E525049C1F270BB100354054 /* ViewController */,
 				E52504A21F27144200354054 /* RecordItem */,

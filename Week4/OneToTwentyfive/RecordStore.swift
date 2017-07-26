@@ -20,6 +20,10 @@ class RecordStore {
         return newRecordItem
     }
     
+    func createRecordItem(recordItem: RecordItem) {
+        allRecordItems.append(recordItem)
+    }
+    
     func removeRecordItem(recordItem: RecordItem) {
         guard let index = allRecordItems.index(of: recordItem) else {
             return
@@ -32,8 +36,7 @@ class RecordStore {
         allRecordItems = []
     }
     
-    init() {
-        createRecordItem(nickName: "aaa", record: "asdfasdfa")
+    func updateDataFromStore() {
+        FileUtils.replaceData(to: allRecordItems)
     }
-    
 }

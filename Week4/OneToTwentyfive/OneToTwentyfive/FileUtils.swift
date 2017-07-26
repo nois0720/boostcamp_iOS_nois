@@ -14,39 +14,38 @@ class FileUtils {
         return FileManager.default
     } ()
     
-    private init() {
+    private static var filePath: String {
+        let url = FileUtils.fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
         
+        return (url!.appendingPathComponent("Data").path)
     }
     
-    class func write(fileName: String, dataString: String) {
-        let path = "/Applications/\(fileName)"
-        let data = dataString.data(using: .utf8)
+    class func appendItem2Data(item: RecordItem) {
+        var items = loadData()
+        items.append(item)
         
-        fileManager.createFile(atPath: path, contents: data, attributes: nil)
+        NSKeyedArchiver.archiveRootObject(items, toFile: filePath)
     }
     
-    class func read(fileName: String) {
-        let path = "/Applications/\(fileName)"
-        
-        guard fileManager.fileExists(atPath: path) else {
-            print("File not found")
-            return
-        }
-        
-        guard fileManager.isReadableFile(atPath: path) else {
-            print("file is not readable")
-            return
-        }
-        
-        let data = fileManager.contents(atPath: path)
-        let dataString = String(data: data!, encoding: .utf8)
-        
-        guard dataString != nil else {
-            return
-        }
-        
-        print(dataString!)
-        
+    class func replaceData(to items: [RecordItem]) {
+        NSKeyedArchiver.archiveRootObject(items, toFile: filePath)
     }
     
+    class func loadData() -> [RecordItem] {
+        guard let items = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as? [RecordItem] else {
+            return []
+        }
+        
+        return items
+    }
+    
+    class func getHighScoreItem() -> RecordItem? {
+        let items = loadData().sorted{$0.record < $1.record}
+        
+        guard items.count > 0 else {
+            return nil
+        }
+        
+        return items[0]
+    }
 }

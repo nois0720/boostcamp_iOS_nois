@@ -10,6 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var gameTitleLabel: UILabel!
     @IBOutlet weak var playButton: MyButton!
     @IBOutlet weak var historyButton: MyButton!
     
@@ -26,6 +27,8 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.animateGameTitleLabel()
         
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -48,11 +51,18 @@ class MainViewController: UIViewController {
     
     func gotoGameView() {
         performSegue(withIdentifier: "game", sender: nil)
-        FileUtils.write(fileName: "test")
     }
     
     func gotoHistoryView() {
         performSegue(withIdentifier: "history", sender: nil)
+    }
+    
+    func animateGameTitleLabel() {
+        UIView.animate(withDuration: 0.6, delay: 0, options: [.repeat, .autoreverse], animations: {
+            self.gameTitleLabel.transform = self.gameTitleLabel.transform.scaledBy(x: 1.5, y: 1.5)
+        }, completion: { (finished) -> Void in
+            self.gameTitleLabel.transform = self.gameTitleLabel.transform.scaledBy(x: 2/3, y: 2/3)
+        })
     }
     
 }

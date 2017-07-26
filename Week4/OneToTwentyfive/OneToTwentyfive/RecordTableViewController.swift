@@ -22,6 +22,12 @@ class RecordTableViewController: UITableViewController {
         resetButton.setTitle("Reset")
         backButton.addTarget(self, action: #selector(goBack), for: .touchDown)
         resetButton.addTarget(self, action: #selector(resetRecord), for: .touchDown)
+        
+        let recordItems = FileUtils.loadData()
+        
+        for recordItem in recordItems {
+            recordStore.createRecordItem(recordItem: recordItem)
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,7 +50,7 @@ class RecordTableViewController: UITableViewController {
             let item = recordStore.allRecordItems[indexPath.row]
             
             recordStore.removeRecordItem(recordItem: item)
-            
+            recordStore.updateDataFromStore()
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
@@ -55,6 +61,7 @@ class RecordTableViewController: UITableViewController {
     
     func resetRecord() {
         recordStore.removeAllItem()
+        recordStore.updateDataFromStore()
         tableView.reloadData()
     }
     
