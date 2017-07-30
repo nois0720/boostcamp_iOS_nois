@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Homepwner
+//  Photorama
 //
-//  Created by Yoo Seok Kim on 2017. 7. 16..
+//  Created by Yoo Seok Kim on 2017. 7. 29..
 //  Copyright © 2017년 Nois. All rights reserved.
 //
 
@@ -12,14 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let itemStore = ItemStore()
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let rootViewController = window!.rootViewController as! UINavigationController
+        let photosViewController = rootViewController.topViewController as! PhotosViewController
         
-        // access to ItemsViewController and configuring itemSotre
-        let itemsController = window!.rootViewController as! ItemViewController
-        itemsController.itemStore = itemStore
+        photosViewController.photoStore = PhotoStore()
         
         return true
     }
@@ -30,14 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        let isSuccess = itemStore.saveChanges()
-        
-        guard isSuccess else {
-            print("could not save any of the Items")
-            return
-        }
-
-        print("Success to save all Items")
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
