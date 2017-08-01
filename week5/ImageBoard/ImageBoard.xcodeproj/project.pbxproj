@@ -14,12 +14,14 @@
 		E52504F91F2DE35000354054 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52504F81F2DE35000354054 /* LoginViewController.swift */; };
 		E52504FB1F2DE35E00354054 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52504FA1F2DE35E00354054 /* SignupViewController.swift */; };
 		E52504FF1F2DEC2D00354054 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52504FE1F2DEC2D00354054 /* User.swift */; };
-		E52505011F2DEC9700354054 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52505001F2DEC9700354054 /* Image.swift */; };
+		E52505011F2DEC9700354054 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52505001F2DEC9700354054 /* Photo.swift */; };
 		E52505041F2DED4B00354054 /* ImageBoardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52505031F2DED4B00354054 /* ImageBoardAPI.swift */; };
 		E52505061F2E110D00354054 /* AuthenticationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52505051F2E110D00354054 /* AuthenticationCenter.swift */; };
-		E52505081F2EE56E00354054 /* ImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52505071F2EE56E00354054 /* ImageTableViewController.swift */; };
 		E525050B1F2EE98400354054 /* ImageBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525050A1F2EE98400354054 /* ImageBoardCell.swift */; };
-		E525050D1F2EEBD300354054 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525050C1F2EEBD300354054 /* ImageStore.swift */; };
+		E525050D1F2EEBD300354054 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525050C1F2EEBD300354054 /* PhotoStore.swift */; };
+		E55B6DAD1F3057B5000BDAC7 /* ImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55B6DAC1F3057B5000BDAC7 /* ImageTableViewController.swift */; };
+		E5FA81541F2F65DA00FA1220 /* ImageBoardDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA81531F2F65DA00FA1220 /* ImageBoardDataSource.swift */; };
+		E5FA81561F2F949C00FA1220 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FA81551F2F949C00FA1220 /* UploadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,12 +34,14 @@
 		E52504F81F2DE35000354054 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E52504FA1F2DE35E00354054 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		E52504FE1F2DEC2D00354054 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		E52505001F2DEC9700354054 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		E52505001F2DEC9700354054 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		E52505031F2DED4B00354054 /* ImageBoardAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBoardAPI.swift; sourceTree = "<group>"; };
 		E52505051F2E110D00354054 /* AuthenticationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationCenter.swift; sourceTree = "<group>"; };
-		E52505071F2EE56E00354054 /* ImageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewController.swift; sourceTree = "<group>"; };
 		E525050A1F2EE98400354054 /* ImageBoardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBoardCell.swift; sourceTree = "<group>"; };
-		E525050C1F2EEBD300354054 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
+		E525050C1F2EEBD300354054 /* PhotoStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
+		E55B6DAC1F3057B5000BDAC7 /* ImageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewController.swift; sourceTree = "<group>"; };
+		E5FA81531F2F65DA00FA1220 /* ImageBoardDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBoardDataSource.swift; sourceTree = "<group>"; };
+		E5FA81551F2F949C00FA1220 /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +92,9 @@
 			children = (
 				E52504F81F2DE35000354054 /* LoginViewController.swift */,
 				E52504FA1F2DE35E00354054 /* SignupViewController.swift */,
-				E52505071F2EE56E00354054 /* ImageTableViewController.swift */,
+				E55B6DAC1F3057B5000BDAC7 /* ImageTableViewController.swift */,
+				E5FA81531F2F65DA00FA1220 /* ImageBoardDataSource.swift */,
+				E5FA81551F2F949C00FA1220 /* UploadViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -97,9 +103,9 @@
 			isa = PBXGroup;
 			children = (
 				E52504FE1F2DEC2D00354054 /* User.swift */,
-				E52505001F2DEC9700354054 /* Image.swift */,
+				E52505001F2DEC9700354054 /* Photo.swift */,
 				E52505051F2E110D00354054 /* AuthenticationCenter.swift */,
-				E525050C1F2EEBD300354054 /* ImageStore.swift */,
+				E525050C1F2EEBD300354054 /* PhotoStore.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -194,15 +200,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E525050B1F2EE98400354054 /* ImageBoardCell.swift in Sources */,
+				E5FA81561F2F949C00FA1220 /* UploadViewController.swift in Sources */,
 				E52505061F2E110D00354054 /* AuthenticationCenter.swift in Sources */,
 				E52504FF1F2DEC2D00354054 /* User.swift in Sources */,
-				E525050D1F2EEBD300354054 /* ImageStore.swift in Sources */,
+				E525050D1F2EEBD300354054 /* PhotoStore.swift in Sources */,
 				E52505041F2DED4B00354054 /* ImageBoardAPI.swift in Sources */,
-				E52505081F2EE56E00354054 /* ImageTableViewController.swift in Sources */,
+				E5FA81541F2F65DA00FA1220 /* ImageBoardDataSource.swift in Sources */,
+				E55B6DAD1F3057B5000BDAC7 /* ImageTableViewController.swift in Sources */,
 				E52504F91F2DE35000354054 /* LoginViewController.swift in Sources */,
 				E52504FB1F2DE35E00354054 /* SignupViewController.swift in Sources */,
 				E52504E71F2DDFBC00354054 /* AppDelegate.swift in Sources */,
-				E52505011F2DEC9700354054 /* Image.swift in Sources */,
+				E52505011F2DEC9700354054 /* Photo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +374,7 @@
 				E52504F71F2DDFBC00354054 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
