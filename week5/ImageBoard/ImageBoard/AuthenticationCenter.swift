@@ -9,10 +9,6 @@
 import UIKit
 
 class AuthenticationCenter {
-    let session: URLSession = {
-        let config = URLSessionConfiguration.default
-        return URLSession(configuration: config)
-    }()
     
     var currentUser: User?
     

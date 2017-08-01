@@ -42,40 +42,45 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let signupViewController = segue.destination as? SignupViewController else {
-            return
+        if let signupViewController = segue.destination as? SignupViewController {
+            signupViewController.authenticationCenter = authenticationCenter
         }
         
-        signupViewController.authenticationCenter = authenticationCenter
+        if let imageTableViewController = segue.destination as? ImageTableViewController {
+            imageTableViewController.photoStore = PhotoStore()
+            imageTableViewController.authenticationCenter = authenticationCenter
+        }
     }
     
     //MARK: -Actions
     @IBAction func login(_ sender: UIButton) {
-        guard let emailText = emailTextField.text, !emailText.isEmpty,
-            let passwdText = passwdTextField.text, !passwdText.isEmpty else {
-                let alertTitle = "로그인 실패"
-                let alertMessage = "모든 항목을 입력해주세요"
-                let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                return
-        }
+        self.performSegue(withIdentifier: "Login", sender: nil)
         
-        let userInfo = User(email: emailText, password: passwdText, nickname: nil)
-        authenticationCenter.requestLogin(userInfo: userInfo) { (result) in
-            OperationQueue.main.addOperation({
-                switch result {
-                case let .Success(userInfo):
-                    self.performSegue(withIdentifier: "Login", sender: nil)
-                case let .Failure(error):
-                    let alertTitle = "로그인 실패"
-                    let alertMessage = "Error Message: \(error)"
-                    let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }
-            })
-        }
-            
+//        guard let emailText = emailTextField.text, !emailText.isEmpty,
+//            let passwdText = passwdTextField.text, !passwdText.isEmpty else {
+//                let alertTitle = "로그인 실패"
+//                let alertMessage = "모든 항목을 입력해주세요"
+//                let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
+//                return
+//        }
+//        
+//        let userInfo = User(email: emailText, password: passwdText, nickname: nil)
+//        authenticationCenter.requestLogin(userInfo: userInfo) { (result) in
+//            OperationQueue.main.addOperation({
+//                switch result {
+//                case let .Success(userInfo):
+//                    self.performSegue(withIdentifier: "Login", sender: nil)
+//                case let .Failure(error):
+//                    let alertTitle = "로그인 실패"
+//                    let alertMessage = "Error Message: \(error)"
+//                    let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+//                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//                    self.present(alert, animated: true, completion: nil)
+//                }
+//            })
+//        }
+        
     }
 }

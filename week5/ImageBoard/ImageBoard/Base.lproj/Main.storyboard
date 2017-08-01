@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,7 +37,7 @@
                                         <rect key="frame" x="0.0" y="41" width="343" height="33"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTw-pk-3m2">
                                         <rect key="frame" x="149" y="82" width="45" height="33"/>
@@ -93,7 +94,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="wEL-1R-ecc" customClass="ImageBoardCell" customModule="ImageBoard" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageBoardCell" rowHeight="100" id="wEL-1R-ecc" customClass="ImageBoardCell" customModule="ImageBoard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wEL-1R-ecc" id="STT-6n-E6M">
@@ -107,27 +108,30 @@
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8Qu-Ii-daT">
-                                            <rect key="frame" x="104" y="6" width="46" height="87"/>
+                                            <rect key="frame" x="104" y="6" width="49" height="87"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17l-wV-E9F">
-                                                    <rect key="frame" x="0.0" y="0.0" width="46" height="29"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="49" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcK-II-wRL">
-                                                    <rect key="frame" x="0.0" y="29" width="46" height="29"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kym-sl-YMR">
-                                                    <rect key="frame" x="0.0" y="58" width="46" height="29"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcK-II-wRL" userLabel="Author Label">
+                                                    <rect key="frame" x="0.0" y="29" width="49" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kym-sl-YMR">
+                                                    <rect key="frame" x="0.0" y="58" width="49" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="17l-wV-E9F" firstAttribute="leading" secondItem="WcK-II-wRL" secondAttribute="leading" id="9ck-LD-MVL"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -139,11 +143,13 @@
                                         <constraint firstItem="8Qu-Ii-daT" firstAttribute="top" secondItem="STT-6n-E6M" secondAttribute="top" constant="6" id="t5Z-Jj-WmU"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
+                                    <outlet property="authorLabel" destination="WcK-II-wRL" id="zwR-Bb-NvA"/>
                                     <outlet property="dateLabel" destination="Kym-sl-YMR" id="tdF-Me-OyQ"/>
-                                    <outlet property="descLabel" destination="WcK-II-wRL" id="9O5-ak-nzk"/>
                                     <outlet property="thumbImage" destination="76B-v6-GT0" id="WVB-pL-F3b"/>
                                     <outlet property="titleLabel" destination="17l-wV-E9F" id="OCQ-91-1gh"/>
+                                    <outletCollection property="gestureRecognizers" destination="p09-ZM-wPp" appends="YES" id="Cra-Xu-dLd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -152,10 +158,113 @@
                             <outlet property="delegate" destination="imz-cB-zb8" id="niv-PE-tlk"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="W62-Ys-dOk">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="Cnb-Ga-hqv">
+                            <connections>
+                                <segue destination="APy-Xn-uNp" kind="show" id="DF2-SZ-9BV"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="YGG-hr-Fl0">
+                            <connections>
+                                <action selector="viewOptionSetting:" destination="imz-cB-zb8" id="b3s-kp-R3y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="zAu-gN-MVp" id="gLG-nq-kue"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yz3-MH-5mh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="p09-ZM-wPp"/>
             </objects>
             <point key="canvasLocation" x="2453.5999999999999" y="-322.48875562218893"/>
+        </scene>
+        <!--Upload View Controller-->
+        <scene sceneID="BNG-RK-ia7">
+            <objects>
+                <viewController id="APy-Xn-uNp" customClass="UploadViewController" customModule="ImageBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tSU-HY-GSd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bkl-JO-ush"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="khs-GN-ebu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JOo-2G-rft">
+                                <rect key="frame" x="16" y="80" width="343" height="193"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="JOo-2G-rft" secondAttribute="height" multiplier="16:9" id="JTQ-fe-O13"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="a30-v5-zhv" appends="YES" id="yTf-B0-Qsp"/>
+                                </connections>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EgR-XC-jBY">
+                                <rect key="frame" x="16" y="281" width="343" height="327"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="EgR-XC-jBY" firstAttribute="leading" secondItem="khs-GN-ebu" secondAttribute="leadingMargin" id="0ln-fO-2DO"/>
+                            <constraint firstItem="EgR-XC-jBY" firstAttribute="top" secondItem="JOo-2G-rft" secondAttribute="bottom" constant="8" id="F2Y-hx-WUA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EgR-XC-jBY" secondAttribute="trailing" id="ObZ-Ts-W5J"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JOo-2G-rft" secondAttribute="trailing" id="foW-u6-jzI"/>
+                            <constraint firstItem="JOo-2G-rft" firstAttribute="leading" secondItem="khs-GN-ebu" secondAttribute="leadingMargin" id="mx9-GG-tUv"/>
+                            <constraint firstItem="Bkl-JO-ush" firstAttribute="top" secondItem="EgR-XC-jBY" secondAttribute="bottom" constant="10" id="sGh-SM-tGS"/>
+                            <constraint firstItem="tSU-HY-GSd" firstAttribute="bottom" secondItem="JOo-2G-rft" secondAttribute="top" multiplier="0.8" id="u3L-Xr-WIk"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="M62-6m-hzG" appends="YES" id="69e-Y2-fMq"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="TPy-FL-coo">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="XAd-Zn-ceu">
+                            <connections>
+                                <action selector="cancel:" destination="APy-Xn-uNp" id="RSw-gn-hbO"/>
+                            </connections>
+                        </barButtonItem>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Image Title" textAlignment="center" minimumFontSize="17" id="Ydn-Gx-VxC">
+                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="7LF-ao-rtZ">
+                            <connections>
+                                <action selector="done:" destination="APy-Xn-uNp" id="yl9-Nk-cVT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="photoDescTextView" destination="EgR-XC-jBY" id="W3Q-eO-ppP"/>
+                        <outlet property="photoImageView" destination="JOo-2G-rft" id="tQp-aU-adF"/>
+                        <outlet property="photoTitleTextField" destination="Ydn-Gx-VxC" id="Kxy-CY-JyH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UOS-ks-78X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="a30-v5-zhv" userLabel="Image View Tap Gesture Reconizer">
+                    <connections>
+                        <action selector="tapImage:" destination="APy-Xn-uNp" id="lCp-Am-cOB"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="M62-6m-hzG" userLabel="Backgroung Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="backgroundTap:" destination="APy-Xn-uNp" id="bCJ-Zg-N3w"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3338" y="-322"/>
         </scene>
         <!--회원가입-->
         <scene sceneID="DNU-1w-VrX">
@@ -170,34 +279,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eze-jv-NrP">
-                                <rect key="frame" x="0.0" y="84" width="375" height="197"/>
+                                <rect key="frame" x="16" y="84" width="343" height="197"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tb3-HD-B0h" userLabel="IDTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="33"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="33"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="NickName" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5T-U0-5vE" userLabel="PasswdTextField">
-                                        <rect key="frame" x="0.0" y="41" width="375" height="33"/>
+                                        <rect key="frame" x="0.0" y="41" width="343" height="33"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IQt-6R-rI5">
-                                        <rect key="frame" x="0.0" y="82" width="375" height="33"/>
+                                        <rect key="frame" x="0.0" y="82" width="343" height="33"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password check" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NOw-Hl-XJ6">
-                                        <rect key="frame" x="0.0" y="123" width="375" height="33"/>
+                                        <rect key="frame" x="0.0" y="123" width="343" height="33"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GME-uL-rqi">
-                                        <rect key="frame" x="158" y="164" width="59" height="33"/>
+                                        <rect key="frame" x="142" y="164" width="59" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="가입하기"/>
                                         <connections>
@@ -216,9 +325,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="eze-jv-NrP" secondAttribute="trailing" id="a19-t2-jSt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eze-jv-NrP" secondAttribute="trailing" id="a19-t2-jSt"/>
                             <constraint firstItem="eze-jv-NrP" firstAttribute="top" secondItem="5OS-ZS-Irb" secondAttribute="bottom" constant="20" id="phS-l8-nly"/>
-                            <constraint firstItem="eze-jv-NrP" firstAttribute="leading" secondItem="nD8-d5-QQS" secondAttribute="leading" id="rVo-nA-62v"/>
+                            <constraint firstItem="eze-jv-NrP" firstAttribute="leading" secondItem="nD8-d5-QQS" secondAttribute="leadingMargin" id="rVo-nA-62v"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="fBR-S0-1dd" appends="YES" id="2MH-Pz-AzJ"/>
