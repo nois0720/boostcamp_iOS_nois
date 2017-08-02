@@ -9,7 +9,6 @@
 import UIKit
 
 class PhotosViewController: UIViewController, UICollectionViewDelegate {
-    
     @IBOutlet var collectionView: UICollectionView!
     
     var photoStore: PhotoStore!
@@ -73,4 +72,7 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
+    @IBAction func editImage(_ sender: Any) {
+        
+    }
 }

@@ -10,9 +10,9 @@ import UIKit
 
 //MARK: -로그인, 회원가입 구현
 extension ImageBoardAPI {
-    static func requestLogin(userInfo: User, completion: @escaping (UserResult) -> Void) {
-        let dictionaryForJson: [String : Any] = ["email": "\(userInfo.email)",
-            "password":"\(userInfo.password)"]
+    static func requestLogin(loginInfo: UserForAuthentication, completion: @escaping (UserResult) -> Void) {
+        let dictionaryForJson: [String : Any] = ["email": "\(loginInfo.email)",
+            "password":"\(loginInfo.password)"]
         
         let url = ImageBoardAPI.loginURL()
         var request = URLRequest(url: url)
@@ -34,11 +34,11 @@ extension ImageBoardAPI {
         task.resume()
     }
     
-    static func requestSignup(userInfo: User, completion: @escaping (UserResult) -> Void) {
+    static func requestSignup(signupInfo: UserForAuthentication, completion: @escaping (UserResult) -> Void) {
         //"email" : <String : 이메일주소>, "password" : <String : 암호>, "nickname" : <String : 별명>
-        let dictionaryForJson: [String : Any] = ["email": "\(userInfo.email)",
-            "password":"\(userInfo.password)",
-            "nickname":"\(userInfo.password)"]
+        let dictionaryForJson: [String : Any] = ["email": "\(signupInfo.email)",
+            "password":"\(signupInfo.password)",
+            "nickname":"\(signupInfo.password)"]
         
         let url = ImageBoardAPI.signupURL()
         var request = URLRequest(url: url)
@@ -102,12 +102,13 @@ extension ImageBoardAPI {
     }
     
     private static func userFromJsonObject(json: [String : AnyObject]) -> User? {
-        guard let email = json["email"] as? String,
+        guard let id = json["_id"] as? String,
+            let email = json["email"] as? String,
             let password = json["password"] as? String,
             let nickname = json["nickname"] as? String else {
                 return nil
         }
         
-        return User(email: email, password: password, nickname: nickname)
+        return User(id: id, email: email, password: password, nickname: nickname)
     }
 }

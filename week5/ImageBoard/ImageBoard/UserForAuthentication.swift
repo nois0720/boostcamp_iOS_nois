@@ -1,21 +1,19 @@
 //
-//  User.swift
+//  UserInfoForLogin.swift
 //  ImageBoard
 //
-//  Created by Yoo Seok Kim on 2017. 7. 30..
+//  Created by Yoo Seok Kim on 2017. 8. 2..
 //  Copyright © 2017년 Nois. All rights reserved.
 //
 
 import Foundation
 
-class User {
-    let id: String
+class UserForAuthentication {
     let email: String
     let password: String
     let nickname: String?
     
-    init(id: String, email: String, password: String, nickname: String? = nil) {
-        self.id = id
+    init(email: String, password: String, nickname: String? = nil) {
         self.email = email
         self.password = password
         self.nickname = nickname
