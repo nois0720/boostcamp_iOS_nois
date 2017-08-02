@@ -16,46 +16,45 @@ extension NSMutableData {
 }
 
 enum Method: String {
-    case GetBoardContents = ""
-    case Signup = "/user"
-    case Login = "/login"
-    case PostImage = "/image"
-    case ModifyImage, DeleteImage = "/image/:article_id:"
-}
-
-enum ImagesResult {
-    case Success([Photo])
-    case Failure(Error)
+    case getBoardContents = ""
+    case signup = "/user"
+    case login = "/login"
+    case image = "/image"
 }
 
 enum UserResult {
-    case Success(User)
-    case Failure(Error)
+    case success(User)
+    case failure(Error)
 }
 
 enum JsonResult {
-    case Success(Data)
-    case Failure(Error)
+    case success(Data)
+    case failure(Error)
 }
 
-enum UploadResult {
-    case Success(Photo)
-    case Failure(Error)
+enum PhotosResult {
+    case success([Photo])
+    case failure(Error)
+}
+
+enum PhotoResult {
+    case success(Photo)
+    case failure(Error)
 }
 
 enum FetchPhotoResult {
-    case Success(UIImage)
-    case Failure(Error)
+    case success(UIImage)
+    case failure(Error)
 }
 
 enum APIError: Error {
-    case InvalidJSONData
-    case EmailDuplicated
-    case NonexistentEmail
-    case WrongPassword
-    case UnknownErrorMessage
-    case UserParsingError
-    case PhotoParsingError
+    case invalidJSONData
+    case emailDuplicated
+    case nonexistentEmail
+    case wrongPassword
+    case unknownErrorMessage
+    case userParsingError
+    case photoParsingError
 }
 
 struct ImageBoardAPI {
@@ -66,10 +65,12 @@ struct ImageBoardAPI {
         return URLSession(configuration: config)
     }()
     
-    static func signupURL() -> URL { return imageBoardURL(method: .Signup, parameters: nil) }
-    static func loginURL() -> URL { return imageBoardURL(method: .Login, parameters: nil) }
-    static func imageURL() -> URL { return imageBoardURL(method: .GetBoardContents, parameters: nil) }
-    static func postURL() -> URL { return imageBoardURL(method: .PostImage, parameters: nil) }
+    static func signupURL() -> URL { return imageBoardURL(method: .signup, parameters: nil) }
+    static func loginURL() -> URL { return imageBoardURL(method: .login, parameters: nil) }
+    static func imageURL() -> URL { return imageBoardURL(method: .getBoardContents, parameters: nil) }
+    static func postURL() -> URL { return imageBoardURL(method: .image, parameters: nil) }
+    static func deleteURL(articleId: String) -> URL { return imageBoardArticleURL(method: .image, articleId: articleId) }
+    static func putURL(articleId: String) -> URL { return imageBoardArticleURL(method: .image, articleId: articleId) }
     
     static func dateFormatStringFromDate(date: Date) -> String {
         return dateFormatter.string(from: date)
@@ -102,6 +103,13 @@ struct ImageBoardAPI {
         if(queryItems.count > 0) {
             components.queryItems = queryItems
         }
+        
+        return components.url!
+    }
+    
+    private static func imageBoardArticleURL(method: Method, articleId: String) -> URL {
+        let url = "\(baseURL)\(method.rawValue)/\(articleId)"
+        let components = URLComponents(string: url)!
         
         return components.url!
     }

@@ -14,19 +14,19 @@ class Photo {
     let thumbRemoteURL: String
     let remoteURL: String
     let nickname: String
-    let author: String
+    let authorId: String
     let title: String
     let desc: String
     var image: UIImage?
     
     init(id: String, dateCreated: Date, thumbRemoteURL: String, remoteURL: String,
-         nickname: String, author: String, title: String, desc: String) {
+         nickname: String, authorId: String, title: String, desc: String) {
         self.id = id
         self.dateCreated = dateCreated
         self.thumbRemoteURL = thumbRemoteURL
         self.remoteURL = remoteURL
         self.nickname = nickname
-        self.author = author
+        self.authorId = authorId
         self.title = title
         self.desc = desc
     }

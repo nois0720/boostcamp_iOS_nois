@@ -16,10 +16,15 @@ class ImageTableViewController: UIViewController {
     var originPhotos = [Photo]()
     var currentUser: User!
     
+    var refreshControl: UIRefreshControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
+        refreshControl = UIRefreshControl()
+        tableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(fetchData), for: .valueChanged)
         
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         
@@ -30,14 +35,18 @@ class ImageTableViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         
+        fetchData()
+    }
+    
+    func fetchData() {
         ImageBoardAPI.fetchBoardPhotoItems { (result) in
             OperationQueue.main.addOperation({
                 switch result {
-                case let .Success(photos):
+                case let .success(photos):
                     print("Successfully found \(photos.count) photos.")
                     self.originPhotos = photos
                     self.photos = photos
-                case let .Failure(error):
+                case let .failure(error):
                     self.originPhotos.removeAll()
                     self.photos.removeAll()
                     print("Error fetching recent photos: \(error)")
@@ -45,6 +54,9 @@ class ImageTableViewController: UIViewController {
                 self.tableView.reloadSections(IndexSet(integer: 0), with: .none)
             })
         }
+        
+        tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -56,9 +68,10 @@ class ImageTableViewController: UIViewController {
             return
         }
         
-        let photo = photos[row]
+        let photo = self.photos[row]
         let detailPhotoViewController = segue.destination as! DetailPhotoViewController
         detailPhotoViewController.photo = photo
+        detailPhotoViewController.currentUser = self.currentUser
     }
     
     @IBAction func viewOptionSetting(_ sender: Any) {
@@ -67,7 +80,7 @@ class ImageTableViewController: UIViewController {
         let showMyPhotoAction = UIAlertAction(title: "내 게시물만 보기", style: .default, handler: {
             (action) in
             self.photos = self.photos.filter({ (photo) -> Bool in
-                photo.nickname == self.currentUser?.nickname
+                photo.authorId == self.currentUser?.id
             })
             self.tableView.reloadData()
         })
@@ -103,19 +116,24 @@ extension ImageTableViewController: UITableViewDelegate {
         
         ImageBoardAPI.fetchThumbnailPhotoForImage(photo: photo) { (result) in
             OperationQueue.main.addOperation() {
-                guard let imageIndex = self.photos.index(where: {
-                    $0 == photo
-                }) else {
-                    return
+                switch result {
+                case let .success(image):
+                    guard let imageIndex = self.photos.index(where: {
+                        $0 == photo
+                    }) else {
+                        return
+                    }
+                    
+                    let photoIndexPath = IndexPath(row: imageIndex, section: 0)
+                    
+                    guard let cell = self.tableView.cellForRow(at: photoIndexPath) as? ImageBoardCell else {
+                        return
+                    }
+                    
+                    cell.updateWithImage(image: image)
+                case let .failure(error):
+                    print("thumbnail photo fetch error \(error.localizedDescription)")
                 }
-                
-                let photoIndexPath = IndexPath(row: imageIndex, section: 0)
-                
-                guard let cell = self.tableView.cellForRow(at: photoIndexPath) as? ImageBoardCell else {
-                    return
-                }
-                
-                cell.updateWithImage(image: photo.image)
             }
         }
     }

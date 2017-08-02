@@ -9,10 +9,13 @@
 import Foundation
 import CoreGraphics
 
-struct Line {
+protocol TestLine {
+    func draw()
+}
+
+struct Line: TestLine{
     
     var begin = CGPoint.zero
     var end = CGPoint.zero
     
 }
-

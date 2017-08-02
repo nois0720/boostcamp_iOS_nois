@@ -1,7 +1,188 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sOa-TP-MaU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--로그인-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="ImageBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kfc-ZK-3iP">
+                                <rect key="frame" x="16" y="84" width="343" height="156"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QcV-cA-21m" userLabel="IDTextField">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="33"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QHY-wU-rJF" userLabel="PasswdTextField">
+                                        <rect key="frame" x="0.0" y="41" width="343" height="33"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTw-pk-3m2">
+                                        <rect key="frame" x="149" y="82" width="45" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="로그인"/>
+                                        <connections>
+                                            <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ozt-Wj-59i"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRz-pG-G3e">
+                                        <rect key="frame" x="142" y="123" width="59" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="회원가입">
+                                            <color key="titleColor" red="0.86602105029999998" green="0.29796006940000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="dzN-Oy-7wX" kind="show" id="WY7-mZ-adN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="QHY-wU-rJF" firstAttribute="width" secondItem="kfc-ZK-3iP" secondAttribute="width" id="iVp-na-sLA"/>
+                                    <constraint firstItem="QcV-cA-21m" firstAttribute="leading" secondItem="QHY-wU-rJF" secondAttribute="leading" id="pos-5b-wfA"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="kfc-ZK-3iP" secondAttribute="trailing" id="ALf-9W-Icb"/>
+                            <constraint firstItem="kfc-ZK-3iP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DlD-EF-akj"/>
+                            <constraint firstItem="kfc-ZK-3iP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="GzD-hf-beq"/>
+                            <constraint firstItem="kfc-ZK-3iP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="R2z-2e-VOe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="로그인" id="GxM-Qk-VpD"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="QcV-cA-21m" id="1xy-dQ-qMN"/>
+                        <outlet property="loginButton" destination="dTw-pk-3m2" id="bvo-uZ-Cd2"/>
+                        <outlet property="passwdTextField" destination="QHY-wU-rJF" id="Tjl-PV-klP"/>
+                        <outlet property="signupButton" destination="NRz-pG-G3e" id="BxE-13-fsD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1631" y="585"/>
+        </scene>
+        <!--회원가입-->
+        <scene sceneID="DNU-1w-VrX">
+            <objects>
+                <viewController id="dzN-Oy-7wX" customClass="SignupViewController" customModule="ImageBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5OS-ZS-Irb"/>
+                        <viewControllerLayoutGuide type="bottom" id="XHx-NP-fAt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nD8-d5-QQS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eze-jv-NrP">
+                                <rect key="frame" x="16" y="84" width="343" height="197"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tb3-HD-B0h" userLabel="IDTextField">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="33"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="NickName" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5T-U0-5vE" userLabel="PasswdTextField">
+                                        <rect key="frame" x="0.0" y="41" width="343" height="33"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IQt-6R-rI5">
+                                        <rect key="frame" x="0.0" y="82" width="343" height="33"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password check" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NOw-Hl-XJ6">
+                                        <rect key="frame" x="0.0" y="123" width="343" height="33"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GME-uL-rqi">
+                                        <rect key="frame" x="142" y="164" width="59" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="가입하기"/>
+                                        <connections>
+                                            <action selector="signUp:" destination="dzN-Oy-7wX" eventType="touchUpInside" id="oTG-hT-29J"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="IQt-6R-rI5" firstAttribute="leading" secondItem="h5T-U0-5vE" secondAttribute="leading" id="2Pz-K1-OLY"/>
+                                    <constraint firstItem="tb3-HD-B0h" firstAttribute="leading" secondItem="h5T-U0-5vE" secondAttribute="leading" id="Doh-O4-jhO"/>
+                                    <constraint firstItem="NOw-Hl-XJ6" firstAttribute="leading" secondItem="h5T-U0-5vE" secondAttribute="leading" id="O9H-gZ-krd"/>
+                                    <constraint firstItem="h5T-U0-5vE" firstAttribute="width" secondItem="eze-jv-NrP" secondAttribute="width" id="Zvk-RK-fRb"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="eze-jv-NrP" secondAttribute="trailing" id="a19-t2-jSt"/>
+                            <constraint firstItem="eze-jv-NrP" firstAttribute="top" secondItem="5OS-ZS-Irb" secondAttribute="bottom" constant="20" id="phS-l8-nly"/>
+                            <constraint firstItem="eze-jv-NrP" firstAttribute="leading" secondItem="nD8-d5-QQS" secondAttribute="leadingMargin" id="rVo-nA-62v"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="fBR-S0-1dd" appends="YES" id="2MH-Pz-AzJ"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="회원가입" id="p2f-gO-rRj"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="tb3-HD-B0h" id="Hrs-Mk-VQg"/>
+                        <outlet property="nicknameTextField" destination="h5T-U0-5vE" id="k2g-LP-0fY"/>
+                        <outlet property="passwordCheckTextField" destination="NOw-Hl-XJ6" id="mgl-DY-7wY"/>
+                        <outlet property="passwordTextField" destination="IQt-6R-rI5" id="YHl-XJ-zVw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yUp-Zx-CGC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fBR-S0-1dd">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="dzN-Oy-7wX" id="Ubd-GN-EbO"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2730" y="584"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zMR-Lg-e3b">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sOa-TP-MaU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HmW-oa-jbp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ez3-7w-YjP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xka-Pm-Jt9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="759" y="585"/>
+        </scene>
+    </scenes>
 </document>

@@ -57,11 +57,11 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        let userInfo = User(email: emailText, password: passwordText, nickname: nicknameText)
-        ImageBoardAPI.requestSignup(userInfo: userInfo) { (result) in
+        let userInfo = UserForAuthentication(email: emailText, password: passwordText, nickname: nicknameText)
+        ImageBoardAPI.requestSignup(signupInfo: userInfo) { (result) in
             OperationQueue.main.addOperation({
                 switch result {
-                case let .Success(userInfo):
+                case let .success(userInfo):
                     let alertTitle = "회원가입 성공"
                     let alertMessage = "email: \(userInfo.email)\nnickname: \(userInfo.nickname ?? "")"
                     let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
@@ -71,7 +71,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                         self.navigationController?.popViewController(animated: true)
                     }))
                     self.present(alert, animated: true, completion: nil)
-                case let .Failure(error):
+                case let .failure(error):
                     let alertTitle = "회원가입 실패"
                     let alertMessage = "Error Message: \(error)"
                     let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)

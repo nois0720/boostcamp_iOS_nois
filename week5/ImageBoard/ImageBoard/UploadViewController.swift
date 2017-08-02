@@ -41,15 +41,17 @@ class UploadViewController: UIViewController {
         photoForUpload.image = image
         
         ImageBoardAPI.postImage(photo: photoForUpload) { (result) in
-            switch result {
-            case let .Success(photo):
-                print(photo)
-                self.navigationController?.popViewController(animated: true)
-            case let .Failure(error):
-                let alert = UIAlertController(title: "업로드 실패", message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
+            OperationQueue.main.addOperation({
+                switch result {
+                case let .success(photo):
+                    print(photo)
+                    self.navigationController?.popViewController(animated: true)
+                case let .failure(error):
+                    let alert = UIAlertController(title: "업로드 실패", message: error.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
         }
     }
     
