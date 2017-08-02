@@ -11,13 +11,13 @@ import UIKit
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: -Properties
-    var authenticationCenter: AuthenticationCenter!
-    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwdTextField: UITextField!
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
+    
+    var currentUser: User?
     
     override func viewDidLoad()
     {
@@ -41,46 +41,40 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let signupViewController = segue.destination as? SignupViewController {
-            signupViewController.authenticationCenter = authenticationCenter
-        }
-        
-        if let imageTableViewController = segue.destination as? ImageTableViewController {
-            imageTableViewController.photoStore = PhotoStore()
-            imageTableViewController.authenticationCenter = authenticationCenter
-        }
-    }
-    
     //MARK: -Actions
     @IBAction func login(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "Login", sender: nil)
+        //self.performSegue(withIdentifier: "Login", sender: nil)
         
-//        guard let emailText = emailTextField.text, !emailText.isEmpty,
-//            let passwdText = passwdTextField.text, !passwdText.isEmpty else {
-//                let alertTitle = "로그인 실패"
-//                let alertMessage = "모든 항목을 입력해주세요"
-//                let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//                self.present(alert, animated: true, completion: nil)
-//                return
-//        }
-//        
-//        let userInfo = User(email: emailText, password: passwdText, nickname: nil)
-//        authenticationCenter.requestLogin(userInfo: userInfo) { (result) in
-//            OperationQueue.main.addOperation({
-//                switch result {
-//                case let .Success(userInfo):
-//                    self.performSegue(withIdentifier: "Login", sender: nil)
-//                case let .Failure(error):
-//                    let alertTitle = "로그인 실패"
-//                    let alertMessage = "Error Message: \(error)"
-//                    let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-//                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//                    self.present(alert, animated: true, completion: nil)
-//                }
-//            })
-//        }
+        guard let emailText = emailTextField.text, !emailText.isEmpty,
+            let passwdText = passwdTextField.text, !passwdText.isEmpty else {
+                let alertTitle = "로그인 실패"
+                let alertMessage = "모든 항목을 입력해주세요"
+                let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+        }
         
+        let userInfo = User(email: emailText, password: passwdText, nickname: nil)
+        ImageBoardAPI.requestLogin(userInfo: userInfo) { (result) in
+            OperationQueue.main.addOperation({
+                switch result {
+                case let .Success(userInfo):
+                    self.currentUser = userInfo
+                    let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "AfterLogin") as! UITabBarController
+                    if let navigationController = tabBarController.viewControllers?.first as? UINavigationController,
+                        let imageTableViewController = navigationController.viewControllers.first as? ImageTableViewController {
+                        imageTableViewController.currentUser = self.currentUser
+                    }
+                    self.present(tabBarController, animated: true, completion: nil)
+                case let .Failure(error):
+                    let alertTitle = "로그인 실패"
+                    let alertMessage = "Error Message: \(error)"
+                    let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
+        }
     }
 }

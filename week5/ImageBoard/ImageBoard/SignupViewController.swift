@@ -11,8 +11,6 @@ import UIKit
 class SignupViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: -Properties
-    var authenticationCenter: AuthenticationCenter!
-    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var nicknameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -60,7 +58,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         }
         
         let userInfo = User(email: emailText, password: passwordText, nickname: nicknameText)
-        authenticationCenter.requestSignup(userInfo: userInfo) { (result) in
+        ImageBoardAPI.requestSignup(userInfo: userInfo) { (result) in
             OperationQueue.main.addOperation({
                 switch result {
                 case let .Success(userInfo):
