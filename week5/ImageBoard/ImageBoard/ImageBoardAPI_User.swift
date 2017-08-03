@@ -62,7 +62,7 @@ extension ImageBoardAPI {
     
     private static func processUserRequest(data: Data?, error: Error?) -> UserResult {
         guard let jsonData = data else {
-            return .Failure(error!)
+            return .failure(error!)
         }
         
         return ImageBoardAPI.userFromJsonData(data: jsonData)
@@ -73,31 +73,31 @@ extension ImageBoardAPI {
             let jsonObject: Any = try JSONSerialization.jsonObject(with: data, options: [])
             
             guard let userJson = jsonObject as? [String : AnyObject] else {
-                return .Failure(APIError.InvalidJSONData)
+                return .failure(APIError.invalidJSONData)
             }
             
             guard userJson["error"] == nil else {
                 let errorMessage = userJson["error"] as! String
                 switch errorMessage {
                 case "no user":
-                    return .Failure(APIError.NonexistentEmail)
+                    return .failure(APIError.nonexistentEmail)
                 case "email duplication":
-                    return .Failure(APIError.EmailDuplicated)
+                    return .failure(APIError.emailDuplicated)
                 case "wrong password":
-                    return .Failure(APIError.WrongPassword)
+                    return .failure(APIError.wrongPassword)
                 default :
-                    return .Failure(APIError.UnknownErrorMessage)
+                    return .failure(APIError.unknownErrorMessage)
                 }
             }
             
             guard let user = userFromJsonObject(json: userJson) else {
-                return .Failure(APIError.UserParsingError)
+                return .failure(APIError.userParsingError)
             }
             
-            return .Success(user)
+            return .success(user)
         }
         catch let error {
-            return .Failure(error)
+            return .failure(error)
         }
     }
     
